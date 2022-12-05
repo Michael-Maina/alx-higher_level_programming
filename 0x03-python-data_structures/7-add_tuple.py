@@ -16,10 +16,10 @@ def add_tuple(tuple_a=(), tuple_b=()):
         tuple_c = (a, b)
         return tuple_c
     else:
-        if not tuple_b:
-            return tuple_a
+        if not tuple_b and not tuple_a:
+            tuple_c = (0, 0)
+            return tuple_c
         elif not tuple_a:
             return tuple_b
         else:
-            tuple_c = (0, 0)
-            return tuple_c
+            return tuple_a
