@@ -12,31 +12,21 @@ listint_t *reverse_listint(listint_t **head);
 
 int is_palindrome(listint_t **head)
 {
-	listint_t *rev_list = NULL, *current, *new;
-	int i = 0;
+	listint_t *current, *new;
 
 	current = *head;
-	while (current != NULL)
-	{
-		i++;
-		add_nodeint_end(&rev_list, current->n);
-		current = current->next;
-	}
+	new = *head;
+	reverse_listint(&new);
 
-	reverse_listint(&rev_list);
-	current = *head;
-	new = rev_list;
 	while (current != NULL)
 	{
 		if (current->n != new->n)
 		{
-			free_listint(rev_list);
 			return (0);
 		}
 		current = current->next;
 		new = new->next;
 	}
-	free_listint(rev_list);
 	return (1);
 }
 
