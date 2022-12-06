@@ -11,7 +11,7 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *rev_list = NULL, *current, *new;
-	int i = 0, j = 0, temp;
+	int i = 0;
 
 	current = *head;
 	while (current != NULL)
@@ -21,21 +21,7 @@ int is_palindrome(listint_t **head)
 		current = current->next;
 	}
 
-	i--;
-	while (i > 0)
-	{
-		j = 0;
-		current = rev_list;
-		while (j < i && current->next)
-		{
-			temp = current->n;
-			current->n = current->next->n;
-			current->next->n = temp;
-			current = current->next;
-			j++;
-		}
-		i--;
-	}
+	reverse_listint(&rev_list);
 	current = *head;
 	new = rev_list;
 	while (current != NULL)
