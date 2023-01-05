@@ -23,11 +23,6 @@ class Rectangle:
                 raise ValueError("width must be >= 0")
             self.__width = value
 
-        def __init__(self, width=0, height=0):
-            """Initializes rectangle"""
-            self.height = height
-            self.width = width
-
         @property
         def height(self):
             """getter function for the private instance attribute height"""
