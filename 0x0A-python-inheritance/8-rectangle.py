@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" BaseGeometry Module """
+""" Contains the BaseGeometry Class and Rectangle Sub Class """
 
 
 class BaseGeometry:
@@ -18,7 +18,7 @@ class BaseGeometry:
 
 
 class Rectangle(BaseGeometry):
-    """ Sub class of BaseGeometry """
+    """ Rectangle Sub Class of BaseGeometry """
 
     def __init__(self, width, height):
         """ Initializes data for the rectangle class """
