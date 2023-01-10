@@ -1,0 +1,5 @@
+#Ignore emacs generated files
+*~
+
+#Ignore test files
+*-main.py
