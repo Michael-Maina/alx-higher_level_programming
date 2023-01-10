@@ -10,10 +10,8 @@ if __name__ == "__main__":
     args = []
     try:
         args = load_from("add_item.json")
-        for elem in argv[1:]:
-            args.append(elem)
+        all(args.append(elem) for elem in argv[1:])
         save_to(args, "add_item.json")
-    except:
-        for elem in argv[1:]:
-            args.append(elem)
+    except FileNotFoundError:
+        all(args.append(elem) for elem in argv[1:])
         save_to(args, "add_item.json")
