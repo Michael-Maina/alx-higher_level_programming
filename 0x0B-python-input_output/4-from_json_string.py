@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" Append file Module """
+""" From JSON String to Python Object Module """
 
 
 import json

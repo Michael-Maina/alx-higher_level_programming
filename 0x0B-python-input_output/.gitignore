@@ -3,3 +3,7 @@
 
 #Ignore test files
 *-main.py
+__pycache__/*
+
+#Ignore text files
+*.txt
