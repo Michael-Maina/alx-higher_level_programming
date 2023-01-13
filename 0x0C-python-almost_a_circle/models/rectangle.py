@@ -4,7 +4,7 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """ Rectangle Class, Subclass of Base """
+    """ Rectangle Class, Subclass of Class Base """
 
     def __init__(self, width, height, x=0, y=0, id=None):
         """ Initializes a rectangle with size attributes """
@@ -83,13 +83,13 @@ class Rectangle(Base):
         for i in range(self.__y):
             print("")
         for i in range(self.__height):
-                print(" " *self.__x + "#" * self.__width)
+            print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
         """ Returns a string representation of the Rectangle class """
-        return "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"\
-    "".format(self.id, self.__x, self.__y, self.__width, self.__height)
-
+        return "[{}] ({}) {}/{} - {}/{}".format(type(self).__name__, self.id,
+                                                self.__x, self.__y,
+                                                self.__width, self.__height)
 
     def update(self, *args, **kwargs):
         """ Assigns an argument to each attribute """
@@ -106,14 +106,21 @@ class Rectangle(Base):
                 if i == 4:
                     self.__y = arg
         else:
-            for key, arg in kwargs.items():
-                if key == "id":
-                    self.id = arg
-                if key == "width":
-                    self.__width = arg
-                if key == "height":
-                    self.__height = arg
-                if key == "x":
-                    self.__x = arg
-                if key == "y":
-                    self.__y = arg
+            if kwargs:
+                for key, arg in kwargs.items():
+                    if key == "id":
+                        self.id = arg
+                    if key == "width":
+                        self.__width = arg
+                    if key == "height":
+                        self.__height = arg
+                    if key == "x":
+                        self.__x = arg
+                    if key == "y":
+                        self.__y = arg
+
+    def to_dictionary(self):
+        """ Returns a dictionary representation of the Rectangle Class """
+        class_dict = {'id': self.id, 'width': self.__width,
+                      'height': self.__height, 'x': self.__x, 'y': self.__y}
+        return class_dict
