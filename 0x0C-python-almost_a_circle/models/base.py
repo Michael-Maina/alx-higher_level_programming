@@ -63,15 +63,15 @@ class Base:
         """ Returns a list of instances """
         filename = str(cls.__name__) + ".json"
         instance_list = []
-        if filename is None:
-            return instance_list
-        else:
+        try:
             with open(filename, "r", encoding="utf-8") as my_file:
                 dict_from_file = cls.from_json_string(my_file.read())
 
-            for dictionary in dict_from_file:
-                instance_list.append(cls.create(**dictionary))
+                for dictionary in dict_from_file:
+                    instance_list.append(cls.create(**dictionary))
 
+                return instance_list
+        except FileNotFoundError:
             return instance_list
 
     @classmethod
