@@ -98,29 +98,29 @@ class Rectangle(Base):
                 if i == 0:
                     self.id = arg
                 if i == 1:
-                    self.__width = arg
+                    self.width = arg
                 if i == 2:
-                    self.__height = arg
+                    self.height = arg
                 if i == 3:
-                    self.__x = arg
+                    self.x = arg
                 if i == 4:
-                    self.__y = arg
+                    self.y = arg
         else:
             if kwargs:
                 for key, arg in kwargs.items():
                     if key == "id":
                         self.id = arg
                     if key == "width":
-                        self.__width = arg
+                        self.width = arg
                     if key == "height":
-                        self.__height = arg
+                        self.height = arg
                     if key == "x":
-                        self.__x = arg
+                        self.x = arg
                     if key == "y":
-                        self.__y = arg
+                        self.y = arg
 
     def to_dictionary(self):
         """ Returns a dictionary representation of the Rectangle Class """
-        class_dict = {'id': self.id, 'width': self.__width,
-                      'height': self.__height, 'x': self.__x, 'y': self.__y}
+        class_dict = {'id': self.id, 'width': self.width,
+                      'height': self.height, 'x': self.x, 'y': self.y}
         return class_dict
