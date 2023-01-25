@@ -1,1 +1,0 @@
-This directory contains Python code on test driven development
