@@ -17,7 +17,7 @@ if __name__ == "__main__":
                     WHERE states.name = '{}'\
                     ORDER BY cities.id ASC".format(argv[4]))
         rows = cur.fetchall()
-        cities = ", ".join( row[0] for row in rows)
+        cities = ", ".join(row[0] for row in rows)
         print(cities)
     cur.close()
     conn.close()
