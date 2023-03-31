@@ -8,7 +8,7 @@ from sys import argv
 
 
 if __name__ == "__main__":
-    if len(argv[1]):
+    if len(argv[1]) == 1:
         data = {"q": ""}
     elif not isinstance(argv[1], str):
         print("No result")
@@ -20,7 +20,7 @@ if __name__ == "__main__":
         result = req.json()
         r_id = result.get('id')
         name = result.get('name')
-        if len(result) == 0 or not r_id or not name:
+        if len(result) == 0:
             print("No result")
         else:
             print("[{}] {}".format(r_id, name))
