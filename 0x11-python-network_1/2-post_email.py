@@ -12,7 +12,7 @@ if __name__ == "__main__":
     values = {'email': argv[2]}
     data = parse.urlencode(values)
     data = data.encode('ascii')
-    req = Request(argv[1], header)
+    req = Request(argv[1], data)
 
     with urlopen(req) as response:
         result = response.read().decode('utf-8')
