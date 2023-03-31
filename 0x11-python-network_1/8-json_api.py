@@ -17,10 +17,10 @@ if __name__ == "__main__":
 
     req = requests.post('http://0.0.0.0:5000/search_user', data=data)
     try:
-        if req.status_code == 204 or req.json() == {}:
+        result = req.json()
+        if len(result) == 0:
             print("No result")
         else:
-            result = req.json()
             print("[{}] {}".format(result.get('id'), result.get('name')))
-    except:
+    except requests.exceptions.InvalidJSONError:
         print("Not a valid JSON")
