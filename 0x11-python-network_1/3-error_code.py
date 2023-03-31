@@ -11,8 +11,8 @@ from sys import argv
 if __name__ == "__main__":
     req = Request(argv[1])
 
-    with urlopen(req) as response:
-        try:
+    try:
+        with urlopen(req) as response:
             print(response.read().decode())
-        except HTTPError as e:
-            print("Error code: {}".format(e.code))
+    except HTTPError as e:
+        print("Error code: {}".format(e.code))
